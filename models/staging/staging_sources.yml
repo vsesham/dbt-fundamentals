@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+
+  - name: source_db
+    database: raw
+    schema: jaffle_shop
+
+    tables:
+      - name: customers
+        columns:
+          - name: id
+            tests:
+              - unique
+          - name: first_name
+            tests:
+              - not_null
+      - name: orders
