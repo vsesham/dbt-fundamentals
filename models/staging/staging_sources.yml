@@ -2,7 +2,7 @@ version: 2
 
 sources:
 
-  - name: source_db
+  - name: jaffle_source
     database: raw
     schema: jaffle_shop
 
@@ -16,3 +16,17 @@ sources:
             tests:
               - not_null
       - name: orders
+  
+  - name: stripe_source
+    database: raw
+    schema: stripe
+
+    tables:
+      - name: payment
+        columns:
+          - name: id
+            tests:
+              - unique
+          - name: order_id
+            tests:
+              - not_null
