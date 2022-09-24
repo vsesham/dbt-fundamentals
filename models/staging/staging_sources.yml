@@ -35,6 +35,6 @@ sources:
           - name: id
             tests:
               - unique
-          - name: order_id
+          - name: orderid
             tests:
               - not_null
