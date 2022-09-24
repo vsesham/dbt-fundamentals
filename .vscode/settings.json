@@ -1,0 +1,11 @@
+{
+    "sqlfluff.config": "${workspaceFolder}/.sqlfluff",
+    "sqlfluff.dialect": "mysql",
+    "sqlfluff.executablePath": "/Users/vinaysesham/anaconda/envs/dbt/bin/sqlfluff",
+    "sqlfluff.format.enabled": true,
+    "sqlfluff.format.workingDirectory": "",
+    "sqlfluff.ignoreLocalConfig": false,
+    "sqlfluff.ignoreParsing": false,
+    "sqlfluff.linter.run": "onType",
+    "sqlfluff.rules": [],
+}

@@ -1,0 +1,11 @@
+name: dbt
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - dbt-snowflake==1.2.0
+    - sqlfluff==1.2.1
+    - sqlfluff-templater-dbt==1.2.1
