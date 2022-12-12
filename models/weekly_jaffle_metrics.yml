@@ -1,0 +1,15 @@
+version: 2
+
+exposures:
+  - name: weekly_jaffle_metrics
+    type: dashboard
+    maturity: medium
+    description: Did someone say "exponential growth"?
+    
+    owner:
+      name: Vinay Sesham
+      email: vinay.sesham@slalom.com
+
+    depends_on:
+      - ref('fct_orders')
+      - ref('dim_customers')

@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: tpch
+    database: snowflake_sample_data
+    schema: tpch_sf1
+
+    tables:
+      - name: customer
+        description: "{{doc('tpch_customer')}}"
+
+      - name: orders
+        description: "{{doc('tpch_orders')}}"
+
+      - name: region
+        description: "{{doc('tpch_region')}}"
+      
+      - name: nation
+        description: "{{doc('tpch_nation')}}"

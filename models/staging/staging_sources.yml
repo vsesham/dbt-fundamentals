@@ -12,6 +12,7 @@ sources:
           - name: id
             tests:
               - unique
+              - not_null
           - name: first_name
             tests:
               - not_null
@@ -20,6 +21,17 @@ sources:
         freshness:
           warn_after: {count: 12, period: hour}
           error_after: {count: 24, period: hour}
+        columns:
+          - name: id
+            description: Primary key for orders.
+            tests:
+              - unique
+              - not_null
+      - name: customer_inc
+        columns: 
+          - name: customer_id
+            tests:
+              - unique
   
   - name: stripe_source
     database: raw

@@ -5,7 +5,7 @@ SELECT
     ORDERID as ORDER_ID, 
     PAYMENTMETHOD, 
     STATUS, 
-    AMOUNT/100 AS AMOUNT, 
+    {{cents_to_dollars('amount',2)}} AS AMOUNT, 
     CREATED, 
     _BATCHED_AT
 
