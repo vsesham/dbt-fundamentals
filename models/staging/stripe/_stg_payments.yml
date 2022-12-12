@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_payments
+    columns:
+      - name: amount
+        tests:
+          - assert_dollars_spent_are_greater_than_zero:
+               group_by_column: ORDER_ID

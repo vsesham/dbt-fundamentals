@@ -24,6 +24,9 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
 
+vars:
+  start_date_var: "'2020-01-01'"
+  end_date_var: "'2022-12-31'"
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -33,13 +36,34 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   dbt_fundamentals:
+      +required_tests: {"unique.*|not_null": 1}
       # Applies to all files under models/example/
       staging:
           +materialized: view
           +tags: "staged_views"
-
-      intermediate:
-          +materialized: view
+          +persist_docs:
+             relation: true
+             columns: true
+          tpch:
+            +schema: tpch
+            +tags: "snowflake sample tpch views"
       marts:
+          +required_tests: {"relationship.*": 1}
           core:   
               +materialized: table  
+
+seeds:
+  dbt_fundamentals:
+      +database: raw
+    
+      country_codes:
+        +alias: country_mappings
+      currencies:
+        +meta:
+           default_currency: USD
+
+tests:
+  dbt_fundamentals:
+      +schema: dbt_audit
+
+    

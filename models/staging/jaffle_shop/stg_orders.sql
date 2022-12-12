@@ -8,6 +8,6 @@ with orders as
         status
     
     from {{ source('jaffle_source','orders')}}
-    {{ limit_data_in_dev('order_date', 1000) }}
+
 )
 select * from orders
